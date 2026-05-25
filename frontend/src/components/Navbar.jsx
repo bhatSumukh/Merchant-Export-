@@ -9,6 +9,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
@@ -16,11 +17,11 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className ="w-full sticky top-0 z-50 h-30 bg-(--secondary) ">
+        <nav className ="w-full sticky top-0 z-50 lg:h-30 h-25 bg-(--secondary) ">
 
             {/* Upper Navbar */}
 
-            <div className="hidden lg:flex h-10 bg-(--primary) justify-between items-center border border-(--primary) ">   
+            <div className="hidden  lg:flex lg:h-10 bg-(--primary) justify-between items-center border border-(--primary) ">   
                 <div className="flex justify-start gap-4 items-center p-2 w-100 bg-(--secondary) "
                 style={{
                     clipPath: "polygon(0 0, 92% 0, 100% 100%, 0 100%)",
@@ -47,21 +48,29 @@ function Navbar() {
 
             {/* Lower Navbar */}
 
-            <div className="w-full h-20 bg-(--secondary) flex justify-between items-center border-2 border-(--primary) ">
+            <div className="w-full h-15 lg:h-20 bg-(--secondary) flex justify-between items-center lg:border-2 lg:border-(--primary) ">
                 <div className="flex justify-between items-center gap-3 w-full">
                      <div className="flex justify-start items-center lg:h-10 lg:px-10 px-5 py-2 ">
                     <h1 className="flex size-20 font-playfair-display lg:letter-spacing:1.1 w-full text-center items-center">Merchant Export</h1>
                 </div>
                 <div className="hidden lg:flex justify-end items-center lg:gap-10">
                     <ul className="flex justify-center items-center gap-10 px-20">
-                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">Home</li>
-                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">About</li>
-                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">Products</li>
-                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">Contact</li> 
+                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">
+                            <Link to="/about">About</Link>
+                        </li>
+                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">
+                            <Link to="/products">Products</Link>
+                        </li>
+                        <li className="hover:text-(--primary) cursor-pointer text-(--text-primary)">
+                            <Link to="/contact">Contact</Link>
+                        </li>
                     </ul>
                 </div>
                 
-                <div className="flex flex-1 lg:hidden justify-end items-center px-10">
+                <div className="flex flex-1 lg:hidden justify-end items-center px-5">
                     <button
                         className="text-2xl text-(--text-primary)"
                         onClick={() => setIsOpen(!isOpen)}
@@ -71,7 +80,7 @@ function Navbar() {
                 </div>
                 {
   isOpen && (
-    <div className="lg:hidden bg-(--secondary) border-b border-(--primary) w-full absolute top-20 left-0 z-40 transition-all duration-300 ease-in-out">
+    <div className="lg:hidden bg-(--secondary) border-b border-t border-(--primary) w-full absolute top-15 left-0 z-40 transition-all duration-300 ease-in-out">
 
       <ul className="flex flex-col items-center gap-6 py-6">
 
